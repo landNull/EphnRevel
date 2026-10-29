@@ -15,7 +15,13 @@ defmodule EphRevel.Graph do
   def get_node!(id), do: Repo.get!(Node, id)
   def get_node(id), do: Repo.get(Node, id)
 
+  def change_node(%Node{} = node, attrs \\ %{}) do
+    Node.changeset(node, attrs)
+  end
+
   def create_node(attrs) do
+    attrs = normalize_payload(attrs)
+
     result =
       %Node{}
       |> Node.changeset(attrs)
@@ -32,6 +38,8 @@ defmodule EphRevel.Graph do
   end
 
   def update_node(%Node{} = node, attrs) do
+    attrs = normalize_payload(attrs)
+
     result =
       node
       |> Node.changeset(attrs)
@@ -57,14 +65,13 @@ defmodule EphRevel.Graph do
 
   def board(type \\ nil, query \\ nil, filters \\ []) do
     if Search.configured?() and (query || filters != []) do
-      # Prefer Meilisearch for filtered/search views
       hits = Search.search(query || "", filters)
       ids = Enum.map(hits, & &1["id"])
       nodes = from(n in Node, where: n.id in ^ids) |> Repo.all()
-      Enum.group_by(nodes, fn n -> get_in(n.payload, ["column"]) || "backlog" end)
+      Enum.group_by(nodes, fn n -> get_in(n.payload || %{}, ["column"]) || "backlog" end)
     else
       nodes = list_nodes(type)
-      Enum.group_by(nodes, fn n -> get_in(n.payload, ["column"]) || "backlog" end)
+      Enum.group_by(nodes, fn n -> get_in(n.payload || %{}, ["column"]) || "backlog" end)
     end
   end
 
@@ -74,4 +81,19 @@ defmodule EphRevel.Graph do
     emails = Repo.aggregate(from(n in Node, where: n.type == "email"), :count)
     %{nodes: nodes, links: links, emails: emails}
   end
+
+  # Accept either a map or a JSON string in "payload_json" from the form.
+  defp normalize_payload(%{"payload_json" => json} = attrs) when is_binary(json) do
+    case Jason.decode(json) do
+      {:ok, map} when is_map(map) ->
+        attrs
+        |> Map.delete("payload_json")
+        |> Map.put("payload", map)
+
+      _ ->
+        attrs
+    end
+  end
+
+  defp normalize_payload(attrs), do: attrs
 end
