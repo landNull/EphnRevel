@@ -11,7 +11,7 @@
         <li class="nav-item"><.link class="nav-link" navigate={~p"/nodes"}>Nodes</.link></li>
       </ul>
       <ul class="navbar-nav">
-        <%= if @current_user do %>
+        <%= if assigns[:current_user] do %>
           <li class="nav-item"><span class="nav-link"><%= @current_user.email %></span></li>
           <li class="nav-item">
             <.link href={~p"/users/log_out"} method="delete" class="nav-link">Log out</.link>
