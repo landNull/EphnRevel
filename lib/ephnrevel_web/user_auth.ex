@@ -3,7 +3,6 @@ defmodule EphnRevelWeb.UserAuth do
 
   import Plug.Conn
   import Phoenix.Controller
-  import Phoenix.LiveView
 
   alias EphnRevel.Accounts
 
