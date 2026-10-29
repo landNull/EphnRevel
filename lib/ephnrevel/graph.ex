@@ -1,5 +1,5 @@
 defmodule EphnRevel.Graph do
-  @moduledoc """Graph plane: nodes and links. CLI and web both call this."""
+  @moduledoc "Graph plane: nodes and links. CLI and web both call this."
 
   import Ecto.Query, warn: false
   alias EphnRevel.Repo
