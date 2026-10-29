@@ -42,7 +42,9 @@ defmodule EphnRevel.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1"},
       {:bandit, "~> 1.5"},
-      {:bcrypt_elixir, "~> 3.0"}
+      {:bcrypt_elixir, "~> 3.0"},
+      {:finch, "~> 0.18"},
+      {:req, "~> 0.5"}
     ]
   end
 
