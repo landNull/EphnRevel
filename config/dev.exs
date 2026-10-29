@@ -11,7 +11,7 @@ config :ephnrevel, EphnRevelWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "ephnreveldevsecretkeybaseatleast64characterslongfortheendpoint", 
+  secret_key_base: "kV94NyCVF9IaSxd7pKaU9iKjDl1pjvPgilZWPwlr8gxbZhhfGFTqpjDCYXxLqABNjCFrQ9gQCdY8q5_9lDXs8Q",
   watchers: []
 
 config :ephnrevel, EphnRevelWeb.Endpoint,
