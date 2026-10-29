@@ -1,5 +1,5 @@
 defmodule EphnRevel.Accounts do
-  @moduledoc """Accounts context."""
+  @moduledoc "Accounts context."
 
   import Ecto.Query, warn: false
   alias EphnRevel.Repo
