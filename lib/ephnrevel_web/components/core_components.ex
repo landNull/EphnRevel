@@ -100,13 +100,14 @@ defmodule EphnRevelWeb.CoreComponents do
   attr :type, :string, default: "text"
   attr :label, :string
   attr :class, :string, default: "form-control"
+  attr :required, :boolean, default: false
   attr :rest, :global
 
   def input(assigns) do
     ~H"""
     <div class="mb-3">
       <label class="form-label"><%= @label %></label>
-      <input type={@type} name={@field.name} id={@field.id} value={@field.value} class={@class} {@rest} />
+      <input type={@type} name={@field.name} id={@field.id} value={@field.value} class={@class} required={@required} {@rest} />
     </div>
     """
   end
