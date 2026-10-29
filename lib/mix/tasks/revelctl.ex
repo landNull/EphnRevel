@@ -5,6 +5,6 @@ defmodule Mix.Tasks.Revelctl do
   @impl true
   def run(args) do
     Mix.Task.run("app.start")
-    EphRevel.CLI.main(args)
+    EphnRevel.CLI.main(args)
   end
 end

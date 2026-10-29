@@ -1,5 +1,5 @@
-alias EphRevel.Accounts
-alias EphRevel.Graph
+alias EphnRevel.Accounts
+alias EphnRevel.Graph
 
 # Admin user for first login
 {:ok, _user} =
