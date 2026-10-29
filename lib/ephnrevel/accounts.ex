@@ -15,6 +15,7 @@ defmodule EphnRevel.Accounts do
     if User.valid_password?(user, password), do: user
   end
 
+  def get_user(id), do: Repo.get(User, id)
   def get_user!(id), do: Repo.get!(User, id)
 
   def register_user(attrs) do
