@@ -1,7 +1,9 @@
 import Config
 
 config :eph_revel,
-  ecto_repos: [EphRevel.Repo]
+  ecto_repos: [EphRevel.Repo],
+  meilisearch_endpoint: System.get_env("MEILISEARCH_ENDPOINT", "http://127.0.0.1:7700"),
+  meilisearch_api_key: System.get_env("MEILISEARCH_API_KEY")
 
 config :eph_revel, EphRevelWeb.Endpoint,
   url: [host: "localhost"],
@@ -12,10 +14,6 @@ config :eph_revel, EphRevelWeb.Endpoint,
   ],
   pubsub_server: EphRevel.PubSub,
   live_view: [signing_salt: "ephrevelsalt"]
-
-config :eph_revel, EphRevel.Mailer, adapter: Swoosh.Adapters.Local
-
-config :swoosh, :api_client, false
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
