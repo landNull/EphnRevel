@@ -7,7 +7,7 @@ config :ephnrevel, EphnRevel.Repo,
   show_sensitive_data_on_connection_error: true
 
 config :ephnrevel, EphnRevelWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
