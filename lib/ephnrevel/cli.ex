@@ -1,5 +1,5 @@
 defmodule EphnRevel.CLI do
-  @moduledoc """revelctl Mix task entry. CLI-first control plane."""
+  @moduledoc "revelctl Mix task entry. CLI-first control plane."
 
   alias EphnRevel.Graph
   alias EphnRevel.Mail
