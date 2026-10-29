@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1.0",
+  "project": {
+    "name": "eph-revel",
+    "cli_name": "revelctl",
+    "display_name": "Eph-Revel",
+    "kind": "application",
+    "visibility": "public",
+    "license": "AGPL-3.0-only",
+    "repository": {
+      "host": "github",
+      "owner": "landNull",
+      "name": "Eph-Revel",
+      "url": "https://github.com/landNull/Eph-Revel"
+    }
+  },
+  "thesis": {
+    "one_liner": "A project manager that treats every element as a task node."
+  },
+  "core": {
+    "language": "elixir",
+    "web": "phoenix_liveview",
+    "ui_chrome": "bootstrap5",
+    "store": "ecto_sqlite (dev) / ecto_postgres (prod)"
+  },
+  "decisions": [
+    {"id": "D001", "title": "Elixir is the core language"},
+    {"id": "D007", "title": "Phoenix LiveView HTTP adapter"},
+    {"id": "D008", "title": "AGPL-3.0 community edition"},
+    {"id": "D012", "title": "Web chrome is Bootstrap 5"}
+  ]
+}
