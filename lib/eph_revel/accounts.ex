@@ -1,0 +1,23 @@
+defmodule EphRevel.Accounts do
+  @moduledoc """Accounts context."""
+
+  import Ecto.Query, warn: false
+  alias EphRevel.Repo
+  alias EphRevel.Accounts.User
+
+  def get_user_by_email(email) when is_binary(email) do
+    Repo.get_by(User, email: email)
+  end
+
+  def get_user!(id), do: Repo.get!(User, id)
+
+  def register_user(attrs) do
+    %User{}
+    |> User.registration_changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def change_user_registration(%User{} = user, attrs \\ %{}) do
+    User.registration_changeset(user, attrs, hash_password: false)
+  end
+end
