@@ -6,58 +6,28 @@ defmodule EphRevelWeb.UserAuth do
 
   alias EphRevel.Accounts
 
-  def log_in_user(conn, user, params \\ %{}) do
-    token = Accounts.generate_user_session_token(user)
+  def log_in_user(conn, user, _params \\ %{}) do
     user_return_to = get_session(conn, :user_return_to)
 
     conn
     |> renew_session()
-    |> put_session(:user_token, token)
-    |> put_session(:live_socket_id, "users_sessions:#{Base.url_encode64(token)}")
-    |> maybe_write_remember_me_cookie(token, params)
+    |> put_session(:user_id, user.id)
     |> redirect(to: user_return_to || ~p"/dashboard")
   end
 
-  defp maybe_write_remember_me_cookie(conn, token, %{"remember_me" => "true"}) do
-    put_resp_cookie(conn, "user_remember_me", token, max_age: 60 * 60 * 24 * 60)
-  end
-
-  defp maybe_write_remember_me_cookie(conn, _token, _params) do
-    conn
-  end
-
   def log_out_user(conn) do
-    user_token = get_session(conn, :user_token)
-    user_token && Accounts.delete_user_session_token(user_token)
-
-    if live_socket_id = get_session(conn, :live_socket_id) do
-      EphRevelWeb.Endpoint.broadcast(live_socket_id, "disconnect", %{})
-    end
-
     conn
     |> renew_session()
-    |> delete_resp_cookie("user_remember_me")
     |> redirect(to: ~p"/")
   end
 
   def fetch_current_user(conn, _opts) do
-    {user_token, conn} = ensure_user_token(conn)
-    user = user_token && Accounts.get_user_by_session_token(user_token)
+    user_id = get_session(conn, :user_id)
+    user = user_id && Accounts.get_user!(user_id)
     assign(conn, :current_user, user)
-  end
-
-  defp ensure_user_token(conn) do
-    if token = get_session(conn, :user_token) do
-      {token, conn}
-    else
-      conn = fetch_cookies(conn, signed: ["user_remember_me"])
-
-      if token = conn.cookies["user_remember_me"] do
-        {token, put_session(conn, :user_token, token)}
-      else
-        {nil, conn}
-      end
-    end
+  rescue
+    Ecto.NoResultsError ->
+      assign(conn, :current_user, nil)
   end
 
   def require_authenticated_user(conn, _opts) do
