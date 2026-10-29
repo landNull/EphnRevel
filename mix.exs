@@ -1,9 +1,9 @@
-defmodule EphRevel.MixProject do
+defmodule EphnRevel.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :eph_revel,
+      app: :ephnrevel,
       version: "0.1.0",
       elixir: "~> 1.16",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -15,7 +15,7 @@ defmodule EphRevel.MixProject do
 
   def application do
     [
-      mod: {EphRevel.Application, []},
+      mod: {EphnRevel.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
