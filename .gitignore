@@ -1,31 +1,57 @@
-# Elixir
+# Elixir / Erlang
 /_build/
 /cover/
 /deps/
 /doc/
 erl_crash.dump
 *.ez
-EphRevel-*.tar
+*.beam
+*.dump
+.elixir_ls/
 
 # Phoenix
 /priv/static/assets/
 /priv/static/cache_manifest.json
 
-# SQLite
+# SQLite (dev/test databases)
 *.db
 *.db-shm
 *.db-wal
+ephnrevel_dev.db
+ephnrevel_test.db
 
-# Environment
+# Environment and secrets (never commit)
 .env
 .env.*
+!.env.example
+secrets/
+*.secret
+*.pem
+*.key
 
-# Editor
+# Release artifacts
+*.tar
+EphnRevel-*.tar
+
+# Logs
+*.log
+log/
+
+# Editor / IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 
 # OS
 .DS_Store
 Thumbs.db
+
+# d-LitFunc Service Module runtime (Captain Rocket)
+.captainrocket/
+
+# Temporary / local
+/tmp/
+*.tmp
+.cache/
