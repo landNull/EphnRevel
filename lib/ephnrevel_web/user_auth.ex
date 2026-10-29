@@ -3,8 +3,21 @@ defmodule EphnRevelWeb.UserAuth do
 
   import Plug.Conn
   import Phoenix.Controller
+  import Phoenix.LiveView
 
   alias EphnRevel.Accounts
+
+  def on_mount(:mount_current_user, _params, session, socket) do
+    {:cont, mount_current_user(socket, session)}
+  end
+
+  defp mount_current_user(socket, session) do
+    Phoenix.Component.assign_new(socket, :current_user, fn ->
+      if user_id = session["user_id"] do
+        Accounts.get_user(user_id)
+      end
+    end)
+  end
 
   def log_in_user(conn, user, _params \\ %{}) do
     user_return_to = get_session(conn, :user_return_to)
