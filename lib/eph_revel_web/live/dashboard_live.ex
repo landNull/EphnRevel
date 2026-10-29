@@ -23,6 +23,14 @@ defmodule EphRevelWeb.DashboardLive do
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
+            <h5 class="card-title">Emails</h5>
+            <p class="display-4"><%= @stats.emails %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
             <h5 class="card-title">Links</h5>
             <p class="display-4"><%= @stats.links %></p>
           </div>
