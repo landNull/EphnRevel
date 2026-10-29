@@ -39,7 +39,7 @@ defmodule EphnRevelWeb.BoardLive do
             <div class="card-header"><%= col %> <span class="badge bg-secondary"><%= length(nodes) %></span></div>
             <div class="card-body">
               <%= for node <- nodes do %>
-                <div class={"card mb-2 border-start border-4 #{if node.type == "email", do: "border-info", else: "border-primary"}"}>
+                <div class={"card mb-2 border-start border-4 #{if node.type == "email", do: "border-info", else: "border-primary"}"}>
                   <div class="card-body p-2">
                     <strong><%= node.title %></strong><br>
                     <small class="text-muted"><%= node.type %></small>
