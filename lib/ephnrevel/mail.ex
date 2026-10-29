@@ -1,5 +1,6 @@
 defmodule EphnRevel.Mail do
-  @moduledoc """Email adapter (EspoCRM-style personal account).
+  @moduledoc """
+  Email adapter (EspoCRM-style personal account).
   Emails become task nodes (type: email) so they appear on the kanban.
   Zoho defaults: imap.zoho.com:993 SSL, smtp.zoho.com:465 SSL / 587 TLS.
   Credentials via env (never stored in repo).
