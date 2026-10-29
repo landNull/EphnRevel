@@ -71,7 +71,7 @@ defmodule EphnRevelWeb.NodeLive.Index do
             <td class="text-end">
               <.link navigate={~p"/nodes/#{node}"} class="btn btn-sm btn-outline-primary me-1">Show</.link>
               <.link patch={~p"/nodes/#{node}/edit"} class="btn btn-sm btn-outline-secondary me-1">Edit</.link>
-              <.link phx-click={JS.push("delete", value: %{id: node.id}) |> JS.hide("##{id}")}
+              <.link phx-click={JS.push("delete", value: %{id: node.id}) |> JS.hide(to: "##{id}")}
                      data-confirm="Delete this node?"
                      class="btn btn-sm btn-outline-danger">Delete</.link>
             </td>
