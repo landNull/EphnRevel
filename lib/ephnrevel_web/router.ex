@@ -26,19 +26,26 @@ defmodule EphnRevelWeb.Router do
   scope "/", EphnRevelWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
-    live "/users/log_in", UserLoginLive, :new
+    live_session :redirect_if_user_is_authenticated,
+      on_mount: [{EphnRevelWeb.UserAuth, :mount_current_user}] do
+      live "/users/log_in", UserLoginLive, :new
+    end
+
     post "/users/log_in", UserSessionController, :create
   end
 
   scope "/", EphnRevelWeb do
     pipe_through [:browser, :require_authenticated_user]
 
-    live "/dashboard", DashboardLive, :index
-    live "/board", BoardLive, :index
-    live "/nodes", NodeLive.Index, :index
-    live "/nodes/new", NodeLive.Index, :new
-    live "/nodes/:id", NodeLive.Show, :show
-    live "/nodes/:id/edit", NodeLive.Index, :edit
+    live_session :require_authenticated_user,
+      on_mount: [{EphnRevelWeb.UserAuth, :mount_current_user}] do
+      live "/dashboard", DashboardLive, :index
+      live "/board", BoardLive, :index
+      live "/nodes", NodeLive.Index, :index
+      live "/nodes/new", NodeLive.Index, :new
+      live "/nodes/:id", NodeLive.Show, :show
+      live "/nodes/:id/edit", NodeLive.Index, :edit
+    end
 
     delete "/users/log_out", UserSessionController, :delete
   end
