@@ -1,5 +1,6 @@
 defmodule EphnRevel.Search do
-  @moduledoc """Meilisearch (MIT) adapter. Open-source, free for commercial use.
+  @moduledoc """
+  Meilisearch (MIT) adapter. Open-source, free for commercial use.
   Typo-tolerant, faceted filtering for nodes (tasks, emails, etc.).
   """
 
