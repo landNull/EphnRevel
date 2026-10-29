@@ -1,6 +1,5 @@
 import Config
 
-# Runtime config for prod. Dev uses config/dev.exs SQLite.
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
@@ -9,7 +8,7 @@ if config_env() == :prod do
       For example: ecto://USER:PASS@HOST/DATABASE
       """
 
-  config :eph_revel, EphRevel.Repo,
+  config :ephnrevel, EphnRevel.Repo,
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
@@ -23,7 +22,7 @@ if config_env() == :prod do
   host = System.get_env("PHX_HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
-  config :eph_revel, EphRevelWeb.Endpoint,
+  config :ephnrevel, EphnRevelWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
     http: [ip: {0, 0, 0, 0, 0, 0, 0, 0}, port: port],
     secret_key_base: secret_key_base
