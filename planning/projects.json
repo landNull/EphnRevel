@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {"id": 1, "type": "project", "title": "EphnRevel", "payload": {"column": "active", "kind": "project"}, "external_id": null},
+    {"id": 2, "type": "milestone", "title": "Definitions and persona foundation", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 3, "type": "milestone", "title": "Backdrop persona", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 4, "type": "milestone", "title": "WordPress persona", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 5, "type": "milestone", "title": "Revel-native best-of-both persona, docs, release", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 6, "type": "milestone", "title": "Theme Machine shell", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 7, "type": "milestone", "title": "ArcadeDB index", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 8, "type": "milestone", "title": "D7 migration", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 9, "type": "milestone", "title": "Public websites", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 10, "type": "milestone", "title": "d-LitFunc docs and test harness", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 11, "type": "milestone", "title": "Production readiness", "payload": {"column": "todo"}, "external_id": null},
+    {"id": 12, "type": "task", "title": "admin-personas promptfile (M1)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.admin-personas.20261107-192743.md"},
+    {"id": 13, "type": "task", "title": "theme-machine-shell promptfile (M5)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.theme-machine-shell.20261107-195209.md"},
+    {"id": 14, "type": "task", "title": "arcadedb-index promptfile (M6)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.arcadedb-index.20261107-195400.md"},
+    {"id": 15, "type": "task", "title": "d7-migration promptfile (M7)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.d7-migration.20261107-195500.md"},
+    {"id": 16, "type": "task", "title": "public-websites promptfile (M8)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.public-websites.20261107-195600.md"},
+    {"id": 17, "type": "task", "title": "dlitfunc-docs promptfile (M9)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.dlitfunc-docs.20261107-195700.md"},
+    {"id": 18, "type": "task", "title": "store-and-devel-branch promptfile (M10)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.store-and-devel-branch.20261107-195800.md"},
+    {"id": 19, "type": "task", "title": "tablet-kickoff promptfile (project level)", "payload": {"column": "doing", "kind": "promptfile"}, "external_id": "ephnrevel.tablet-kickoff.20261107-210317.md"}
+  ],
+  "links": [
+    {"kind": "contains", "source": 1, "target": 2},
+    {"kind": "contains", "source": 1, "target": 3},
+    {"kind": "contains", "source": 1, "target": 4},
+    {"kind": "contains", "source": 1, "target": 5},
+    {"kind": "contains", "source": 1, "target": 6},
+    {"kind": "contains", "source": 1, "target": 7},
+    {"kind": "contains", "source": 1, "target": 8},
+    {"kind": "contains", "source": 1, "target": 9},
+    {"kind": "contains", "source": 1, "target": 10},
+    {"kind": "contains", "source": 1, "target": 11},
+    {"kind": "contains", "source": 2, "target": 12},
+    {"kind": "contains", "source": 6, "target": 13},
+    {"kind": "contains", "source": 7, "target": 14},
+    {"kind": "contains", "source": 8, "target": 15},
+    {"kind": "contains", "source": 9, "target": 16},
+    {"kind": "contains", "source": 10, "target": 17},
+    {"kind": "contains", "source": 11, "target": 18},
+    {"kind": "contains", "source": 1, "target": 19}
+  ]
+}
