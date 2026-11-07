@@ -18,7 +18,7 @@
     {"id": 16, "type": "task", "title": "public-websites promptfile (M8)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.public-websites.20261107-195600.md"},
     {"id": 17, "type": "task", "title": "dlitfunc-docs promptfile (M9)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.dlitfunc-docs.20261107-195700.md"},
     {"id": 18, "type": "task", "title": "store-and-devel-branch promptfile (M10)", "payload": {"column": "todo", "kind": "promptfile"}, "external_id": "ephnrevel.store-and-devel-branch.20261107-195800.md"},
-    {"id": 19, "type": "task", "title": "tablet-kickoff promptfile (project level)", "payload": {"column": "doing", "kind": "promptfile"}, "external_id": "ephnrevel.tablet-kickoff.20261107-210317.md"}
+    {"id": 19, "type": "task", "title": "tablet-kickoff promptfile (project level)", "payload": {"column": "done", "kind": "promptfile", "done_on": "2026-11-07"}, "external_id": "ephnrevel.tablet-kickoff.20261107-210317.md"}
   ],
   "links": [
     {"kind": "contains", "source": 1, "target": 2},
